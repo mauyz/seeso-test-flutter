@@ -11,11 +11,14 @@ class InitializingWidget extends StatelessWidget {
     final consumer = Provider.of<GazeTrackerProvider>(context);
     return Column(
       children: <Widget>[
-        const Text('You need to init GazeTracker first',
-            style: TextStyle(
-                color: Colors.white24,
-                fontSize: 10,
-                decoration: TextDecoration.none)),
+        const Text(
+          'You need to init GazeTracker first',
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
+        ),
         Container(
           height: 10,
         ),
@@ -23,13 +26,16 @@ class InitializingWidget extends StatelessWidget {
           width: double.maxFinite,
           color: Colors.white12,
           child: TextButton(
-              onPressed: () {
-                consumer.initGazeTracker();
-              },
-              child: const Text(
-                'Initialize   GazzeTracker',
-                style: TextStyle(color: Colors.white),
-              )),
+            onPressed: () {
+              consumer.initGazeTracker();
+            },
+            child: const Text(
+              'Initialize   GazzeTracker',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
         Container(
           width: double.maxFinite,
@@ -45,16 +51,17 @@ class InitializingWidget extends StatelessWidget {
               const Text(
                 'With User Option',
                 style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    decoration: TextDecoration.none),
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  decoration: TextDecoration.none,
+                ),
               ),
               CupertinoSwitch(
-                  activeColor: Colors.white,
-                  value: consumer.isUserOption,
-                  onChanged: ((value) =>
-                      consumer.changeUserStatusOption(value))),
+                activeColor: Colors.white,
+                value: consumer.isUserOption,
+                onChanged: (value) => consumer.changeUserStatusOption(value),
+              ),
             ],
           ),
         ),

@@ -17,22 +17,28 @@ class InitializedWidget extends StatelessWidget {
             width: double.maxFinite,
             height: 20,
             color: const Color.fromARGB(0, 0, 0, 0)),
-        const Text('Now You can track you gaze!',
-            style: TextStyle(
-                color: Colors.white24,
-                fontSize: 10,
-                decoration: TextDecoration.none)),
+        const Text(
+          'Now You can track you gaze!',
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
+        ),
         Container(
           width: double.maxFinite,
           color: Colors.white12,
           child: TextButton(
-              onPressed: () {
-                consumer.startTracking();
-              },
-              child: const Text(
-                'Start Tracking',
-                style: TextStyle(color: Colors.white),
-              )),
+            onPressed: () {
+              consumer.startTracking();
+            },
+            child: const Text(
+              'Start Tracking',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ],
     );

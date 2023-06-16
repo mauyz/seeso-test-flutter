@@ -14,11 +14,12 @@ class TrackingModeWidget extends StatelessWidget {
   void _showSavedDialog(BuildContext context) {
     var state = Provider.of<GazeTrackerProvider>(context, listen: false);
     showCupertinoDialog(
-        context: context,
-        builder: (_) => ChangeNotifierProvider<GazeTrackerProvider>.value(
-              value: state,
-              child: const SaveDataDialogWidget(),
-            ));
+      context: context,
+      builder: (_) => ChangeNotifierProvider<GazeTrackerProvider>.value(
+        value: state,
+        child: const SaveDataDialogWidget(),
+      ),
+    );
   }
 
   @override
@@ -31,45 +32,63 @@ class TrackingModeWidget extends StatelessWidget {
             width: double.maxFinite,
             height: 20,
             color: const Color.fromARGB(0, 0, 0, 0)),
-        const Text('Tracking is On!!',
-            style: TextStyle(
-                color: Colors.white24,
-                fontSize: 10,
-                decoration: TextDecoration.none)),
-        Container(
-          width: double.maxFinite,
-          color: Colors.white12,
-          child: TextButton(
-              onPressed: () {
-                consumer.stopTracking();
-              },
-              child: const Text(
-                'Stop tracking',
-                style: TextStyle(color: Colors.white),
-              )),
+        const Text(
+          'Tracking is On!!',
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
         ),
         Container(
-            width: double.maxFinite,
-            height: 20,
-            color: const Color.fromARGB(0, 0, 0, 0)),
-        const Text('And also you can improve accuaracy through calibration',
-            style: TextStyle(
-                color: Colors.white24,
-                fontSize: 10,
-                decoration: TextDecoration.none)),
+          width: double.maxFinite,
+          color: Colors.white12,
+          child: TextButton(
+            onPressed: () {
+              consumer.stopTracking();
+            },
+            child: const Text(
+              'Stop tracking',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        Container(
+          width: double.maxFinite,
+          height: 20,
+          color: const Color.fromARGB(
+            0,
+            0,
+            0,
+            0,
+          ),
+        ),
+        const Text(
+          'And also you can improve accuaracy through calibration',
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
+        ),
         Container(
           width: double.maxFinite,
           color: Colors.white12,
           child: TextButton(
-              onPressed: () {
-                consumer.startCalibration();
-              },
-              child: Text(
-                (consumer.state == GazeTrackerState.calibrating)
-                    ? 'Calibration started!'
-                    : 'Start Calibration',
-                style: const TextStyle(color: Colors.white),
-              )),
+            onPressed: () {
+              consumer.startCalibration();
+            },
+            child: Text(
+              (consumer.state == GazeTrackerState.calibrating)
+                  ? 'Calibration started!'
+                  : 'Start Calibration',
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
         Container(
           width: double.maxFinite,
@@ -85,26 +104,33 @@ class TrackingModeWidget extends StatelessWidget {
               const Text(
                 'Calibration Type',
                 style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    decoration: TextDecoration.none),
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  decoration: TextDecoration.none,
+                ),
               ),
               const SizedBox(
                 width: 60,
               ),
               CupertinoSegmentedControl(
                 children: const {
-                  1: Text(" ONE_POINT ",
-                      style: TextStyle(
-                          color: Colors.white24,
-                          fontSize: 10,
-                          decoration: TextDecoration.none)),
-                  5: Text(" FIVE_POINT ",
-                      style: TextStyle(
-                          color: Colors.white24,
-                          fontSize: 10,
-                          decoration: TextDecoration.none)),
+                  1: Text(
+                    " ONE_POINT ",
+                    style: TextStyle(
+                      color: Colors.white24,
+                      fontSize: 10,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
+                  5: Text(
+                    " FIVE_POINT ",
+                    style: TextStyle(
+                      color: Colors.white24,
+                      fontSize: 10,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
                 },
                 onValueChanged: (newValue) {
                   debugPrint('value changed : $newValue');
@@ -131,21 +157,26 @@ class TrackingModeWidget extends StatelessWidget {
             width: double.maxFinite,
             color: Colors.white12,
             child: TextButton(
-                onPressed: () {
-                  consumer.saveCalibrationData();
-                  _showSavedDialog(context);
-                },
-                child: const Text(
-                  'Save Calibration Data to local',
-                  style: TextStyle(color: Colors.white),
-                )),
+              onPressed: () {
+                consumer.saveCalibrationData();
+                _showSavedDialog(context);
+              },
+              child: const Text(
+                'Save Calibration Data to local',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
         const Text(
-            '(Calibration only can be done while gae tracking is activated)',
-            style: TextStyle(
-                color: Colors.white24,
-                fontSize: 10,
-                decoration: TextDecoration.none)),
+          '(Calibration only can be done while gae tracking is activated)',
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
+        ),
         Container(
           height: 10,
         ),

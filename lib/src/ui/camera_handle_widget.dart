@@ -12,22 +12,26 @@ class CameraHandleWidget extends StatelessWidget {
         const Text(
           'We must have cmaera permission!',
           style: TextStyle(
-              color: Colors.white24,
-              fontSize: 10,
-              decoration: TextDecoration.none),
+            color: Colors.white24,
+            fontSize: 10,
+            decoration: TextDecoration.none,
+          ),
         ),
         Container(
           width: double.maxFinite,
           color: Colors.white12,
           child: TextButton(
-              onPressed: () {
-                Provider.of<GazeTrackerProvider>(context, listen: false)
-                    .handleCamera();
-              },
-              child: const Text(
-                'Click here to request cmaera authorization',
-                style: TextStyle(color: Colors.white),
-              )),
+            onPressed: () {
+              Provider.of<GazeTrackerProvider>(context, listen: false)
+                  .handleCamera();
+            },
+            child: const Text(
+              'Click here to request cmaera authorization',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ],
     );

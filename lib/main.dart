@@ -30,12 +30,18 @@ class SampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MultiProvider(providers: [
-      ChangeNotifierProvider(
-          create: (BuildContext context) => GazeTrackerProvider()),
-      ChangeNotifierProvider(
-          create: (BuildContext context) => UserExtandProvider())
-    ], child: const AppView()));
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (BuildContext context) => GazeTrackerProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (BuildContext context) => UserExtandProvider(),
+          )
+        ],
+        child: const AppView(),
+      ),
+    );
   }
 }
 
@@ -53,32 +59,34 @@ class _AppViewState extends State<AppView> {
       children: <Widget>[
         SafeArea(
           child: Container(
-              color: Colors.white10,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      const TitleWidget(),
-                      Consumer<GazeTrackerProvider>(
-                        builder: (context, gazetracker, child) {
-                          switch (gazetracker.state) {
-                            case GazeTrackerState.first:
-                              return const CameraHandleWidget();
-                            case GazeTrackerState.idle:
-                              return const InitializingWidget();
-                            case GazeTrackerState.initialized:
-                              return const InitializedWidget();
-                            case GazeTrackerState.start:
-                            case GazeTrackerState.calibrating:
-                              return const TrackingModeWidget();
-                            default:
-                              return const InitializingWidget();
-                          }
-                        },
-                      ),
-                    ]),
-              )),
+            color: Colors.white10,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  const TitleWidget(),
+                  Consumer<GazeTrackerProvider>(
+                    builder: (context, gazetracker, child) {
+                      switch (gazetracker.state) {
+                        case GazeTrackerState.first:
+                          return const CameraHandleWidget();
+                        case GazeTrackerState.idle:
+                          return const InitializingWidget();
+                        case GazeTrackerState.initialized:
+                          return const InitializedWidget();
+                        case GazeTrackerState.start:
+                        case GazeTrackerState.calibrating:
+                          return const TrackingModeWidget();
+                        default:
+                          return const InitializingWidget();
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         if (consumer.state == GazeTrackerState.start) const GazePointWidget(),
         if (consumer.state == GazeTrackerState.initializing)
