@@ -38,6 +38,7 @@ android {
         jvmTarget = '1.8'
     }
 
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -59,6 +60,10 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+    }
+    namespace 'com.example.test_flutter'
+    lint {
+        checkReleaseBuilds false
     }
 }
 
