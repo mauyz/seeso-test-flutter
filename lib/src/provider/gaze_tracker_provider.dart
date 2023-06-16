@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// ignore: depend_on_referenced_packages
 import 'package:permission_handler/permission_handler.dart';
 import 'package:test_flutter/src/model/app_stage.dart';
 import 'package:test_flutter/src/model/gazetracker_method_string.dart';
@@ -8,7 +7,7 @@ import 'package:test_flutter/src/model/gazetracker_method_string.dart';
 class GazeTrackerProvider with ChangeNotifier {
   dynamic state;
   static const licenseKey =
-      'input your key'; // Please enter the key value for development issued by the SeeSo.io
+      'dev_320cn99x02tl8rczbvt3yuslyz518zg76f46sekd'; // Please enter the key value for development issued by the SeeSo.io
   final _channel = const MethodChannel('samples.flutter.dev/tracker');
   String? failedReason;
   // gaze X,Y
@@ -155,10 +154,12 @@ class GazeTrackerProvider with ChangeNotifier {
     failedReason = null;
     _setTrackerState(GazeTrackerState.initializing);
     final String result = await _channel.invokeMethod(
-        MethodString.initGazeTracker.convertedText, {
-      'license': licenseKey,
-      'useStatusOption': isUserOption ? "true" : "false"
-    });
+      MethodString.initGazeTracker.convertedText,
+      {
+        'license': licenseKey,
+        'useStatusOption': isUserOption ? "true" : "false"
+      },
+    );
     debugPrint('result : $result');
   }
 
