@@ -31,7 +31,7 @@ class TrackingModeWidget extends StatelessWidget {
         Container(
             width: double.maxFinite,
             height: 20,
-            color: const Color.fromARGB(0, 0, 0, 0)),
+            color: const Color.fromARGB(0, 0, 0, 0,),),
         const Text(
           'Tracking is On!!',
           style: TextStyle(
@@ -66,7 +66,7 @@ class TrackingModeWidget extends StatelessWidget {
           ),
         ),
         const Text(
-          'And also you can improve accuaracy through calibration',
+          'And also you can improve accuracy through calibration',
           style: TextStyle(
             color: Colors.white24,
             fontSize: 10,
@@ -180,7 +180,7 @@ class TrackingModeWidget extends StatelessWidget {
         Container(
           height: 10,
         ),
-        if (consumer.isUserOption) const UserSatatusWidget(),
+        if (consumer.isUserOption) const UserStatusWidget(),
       ],
     );
   }
