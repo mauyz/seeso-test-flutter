@@ -6,8 +6,7 @@ import 'package:test_flutter/src/model/gazetracker_method_string.dart';
 
 class GazeTrackerProvider with ChangeNotifier {
   dynamic state;
-  static const licenseKey =
-      'dev_320cn99x02tl8rczbvt3yuslyz518zg76f46sekd'; // Please enter the key value for development issued by the SeeSo.io
+  static const licenseKey = 'dev_27gzjsuu48tf6bcjzweoesquixeyf2er2lam8jm6';
   final _channel = const MethodChannel('samples.flutter.dev/tracker');
   String? failedReason;
   // gaze X,Y
