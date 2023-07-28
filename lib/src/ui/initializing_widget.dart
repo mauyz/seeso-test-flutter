@@ -30,7 +30,7 @@ class InitializingWidget extends StatelessWidget {
               consumer.initGazeTracker();
             },
             child: const Text(
-              'Initialize   GazzeTracker',
+              'Initialize GazeTracker',
               style: TextStyle(
                 color: Colors.white,
               ),
