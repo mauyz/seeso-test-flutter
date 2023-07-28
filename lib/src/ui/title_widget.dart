@@ -12,7 +12,7 @@ class TitleWidget extends StatelessWidget {
           Title(
             color: const Color(0xFF000000),
             child: const Text(
-              'SeeSo Sample',
+              'SeeSo Demo',
               style: TextStyle(
                 color: Colors.white,
                 decoration: TextDecoration.none,
@@ -26,7 +26,7 @@ class TitleWidget extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(20),
             child: Text(
-              "Follow steps below to experience gaze tracking",
+              "Follow steps below to experience gaze tracking :",
               style: TextStyle(
                 color: Colors.white,
                 decoration: TextDecoration.none,

@@ -13,11 +13,12 @@ class CameraHandleWidget extends StatelessWidget {
           'We must have camera permission!',
           style: TextStyle(
             color: Colors.white24,
-            fontSize: 10,
+            fontSize: 15,
             decoration: TextDecoration.none,
           ),
         ),
         Container(
+          margin: const EdgeInsets.all(16.0),
           width: double.maxFinite,
           color: Colors.white12,
           child: TextButton(
@@ -26,7 +27,7 @@ class CameraHandleWidget extends StatelessWidget {
                   .handleCamera();
             },
             child: const Text(
-              'Click here to request camera authorization',
+              'Click to request camera authorization',
               style: TextStyle(
                 color: Colors.white,
               ),
