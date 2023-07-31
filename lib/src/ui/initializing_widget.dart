@@ -10,6 +10,7 @@ class InitializingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final consumer = Provider.of<GazeTrackerProvider>(context);
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const Text(
           'You need to init GazeTracker first',
@@ -19,7 +20,7 @@ class InitializingWidget extends StatelessWidget {
             decoration: TextDecoration.none,
           ),
         ),
-        Container(
+        const SizedBox(
           height: 10,
         ),
         Container(
